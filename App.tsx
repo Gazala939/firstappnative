@@ -5,15 +5,14 @@ function App() {
   return (
    
     <View style = {styles.container} >
-        <View style = {styles.header}>
-            <Text> Header </Text>
-        </View>
-        <View style = {styles.body}>
-            <Text> Main Content</Text>
-        </View>
-        <View style = {styles.fotter}>
-            <Text> Footer Area </Text>
-        </View>
+        <Image source ={{uri :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyGv11jUUiXBNK0ChNHHZSkarxMOcyM1htxZBRFHLPdGVf0WHlfpEYEgA&s"}}
+        style = {styles.image}
+        />
+        <Text style = {styles.name}> Gazala Jamadar </Text>
+        <Text style = {styles.role}> Full stack Developer</Text>
+        <Text style = {styles.email}> 📧 gazala@123gmail.com </Text>
+        <Text style = {styles.contact}>📞 8088912367</Text>
+
 
     </View>
     
@@ -24,27 +23,32 @@ const styles = StyleSheet.create({
    
     container:{
         flex:1,
+        justifyContent: 'center',
+        alignItems:'center',
         backgroundColor: '#ffffff',
     },
 
-    header:{
-        flex:1,
-        backgroundColor:'lightgreen',
-        justifyContent: 'center',
+    name:{
+        fontSize: 24,
+        fontWeight:'bold',
     },
 
-    body:{
-        flex : 3,
-        backgroundColor:'lightblue',
-        justifyContent: 'center',
+    role:{
+        fontSize:18,
+        color:'grey',
+        marginBottom: 10,
     },
 
-    fotter:{
-        flex :1,
-        backgroundColor:"grey",
-        justifyContent:"center",
+    contact:{
+        fontSize:16
+    },
+
+    image: {
+        width: 120,
+        height:120,
+        borderRadius:60,
+        marginBottom: 15,
     }
-
 
 
 })
