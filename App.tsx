@@ -2,12 +2,12 @@ import {Image, StyleSheet, Text, View } from 'react-native';
 
 
 function App() {
-    const MyName = () =>
-        <Text> My Name is Gazala</Text>
+    const MyName = (props: any) =>
+        <Text> My Name is {props.name}</Text>
   return (
    
     <View style = {styles.container} >
-        <MyName />
+        <MyName name = "React Native" />
     </View>
     
   );
