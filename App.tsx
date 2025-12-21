@@ -1,16 +1,26 @@
-import {Image, StyleSheet, Text, View } from 'react-native';
+import {Button ,StyleSheet, Text, View } from 'react-native';
+import {useState} from 'react'
+
 
 
 function App() {
-    const MyName = (props: any) =>
-        <Text> My Name is {props.name}</Text>
-  return (
-   
+    const [count, setCount] = useState(0);
+
+    const buttonAction = () =>{
+        setCount(count + 1)
+    }
+   return(
     <View style = {styles.container} >
-        <MyName name = "React Native" />
+        <Text style ={{ fontSize:40 }}>
+             count : {count}
+        </Text>
+        <Button title = 'Increment' onPress={buttonAction} /> 
+        
+        
+        
     </View>
     
-  );
+);
 }
 
 const styles = StyleSheet.create({
