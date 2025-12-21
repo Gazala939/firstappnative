@@ -1,16 +1,18 @@
-import {Button ,StyleSheet, Text, View,TextInput } from 'react-native';
-import {useState} from 'react'
+import {StyleSheet, Text, View,TextInput } from 'react-native';
+import { useEffect } from 'react'
 
 
 
 function App() {
-    const [name, setName] = useState(" ");
+    useEffect(()=>{
+        console.log("App loaded hi how are u")
+    })
 
    return(
     <View style = {styles.container} >
-        <TextInput placeholder = 'Enter Name'  onChangeText = {setName}> </TextInput>
+       
         <Text style ={{ fontSize:40 }}>
-             Your Name : {name}
+            Check Console
         </Text>
         
         
