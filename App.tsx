@@ -1,23 +1,25 @@
-import {StyleSheet, Text, View,TextInput } from 'react-native';
-import { useEffect } from 'react'
+import {StyleSheet, Text, View,Button } from 'react-native';
+import { useEffect, useState } from 'react'
 
 
 
 function App() {
+    const[count, setCount] = useState(0)
     useEffect(()=>{
-        console.log("App loaded hi how are u")
-    })
+        console.log("App loaded")
+    },[])
+
+    useEffect(()=>{
+        console.log('Count Changed', count);
+    },[count]);
 
    return(
     <View style = {styles.container} >
        
         <Text style ={{ fontSize:40 }}>
-            Check Console
+            Count : {count}
         </Text>
-        
-        
-        
-        
+        <Button title = "Add" onPress = {()=> setCount(count +1)} />
     </View>
     
 );
