@@ -1,48 +1,47 @@
 import React from 'react';
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function App() {
-  return (
-    <ImageBackground
-      source={{
-        uri: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200',
-      }}
-      style={styles.bg}
-    >
-      {/* Dark overlay */}
-      <View style={styles.overlay} />
+  const skills = [
+    'React',
+    'RN',
+    'TypeScript',
+    'SQLite',
+    'Redux',
+    'REST',
+    'GraphQL',
+    'Jest',
+    'CI/CD',
+  ];
 
-      {/* Text content */}
-      <Text style={styles.title}>Learn React Native</Text>
-      <Text style={styles.subtitle}>Build once. Run everywhere.</Text>
-    </ImageBackground>
+  return (
+    <View style={styles.container}>
+      {skills.map((skill, index) => (
+        <View key={index} style={styles.chip}>
+          <Text style={styles.chipText}>{skill}</Text>
+        </View>
+      ))}
+    </View>
   );
 }
 const styles = StyleSheet.create({
-  bg: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',   // ⭐ important
+    gap: 8,             // space between chips
+    padding: 16,
+    backgroundColor:'white'
   },
 
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.35)',
+  chip: {
+    backgroundColor: '#E5E5E5',
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    borderRadius: 20,   // ⭐ makes it round
   },
 
-  title: {
-    fontSize: 30,
-    fontWeight: '800',
-    color: '#fff',
-  },
-
-  subtitle: {
-    marginTop: 6,
-    color: '#fff',
+  chipText: {
+    fontSize: 14,
+    color: '#000',
   },
 });
