@@ -8,14 +8,14 @@ export default function App() {
   ];
 
   return (
-    <ScrollView
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.content}
-    >
+    <ScrollView contentContainerStyle={styles.content}>
       {data.map((item, index) => (
-        <View key={index} style={styles.card}>
+        <View>
+            <View style={StyleSheet.divider} />
+            <View key={index} style={styles.card}>
           <Text>{item}</Text>
+        </View>
+        {index % 4 === 0 && <View style = {styles.divider} />}
         </View>
       ))}
     </ScrollView>
@@ -24,15 +24,14 @@ export default function App() {
 const styles = StyleSheet.create({
   content: {
     padding: 20,
-    gap: 15,            // space between cards (RN 0.71+)
+    gap: 15,     
+    backgroundColor: 'wheat'       // space between cards (RN 0.71+)
   },
 
-  card: {
-    width: 120,
-    height: 150,
-    backgroundColor: '#FFECB3',
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
+  divider : {
+    height:1,
+    backgroundColor:'#ccc',
+    flex:1
   },
+
 });
