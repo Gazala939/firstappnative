@@ -1,20 +1,18 @@
 import {useState} from 'react';
 import {  StyleSheet, Text, View,Button } from 'react-native';
 
-const Action = ({ increment, reset}) => (
-    <View style = {{gap:10}}>
-        <Button title = "Add"  onPress ={increment} />
-        <Button title = "Reset"  onPress = {reset}/>
-    </View>
-)
+
+
 function App() {
-    const[total, setTotal] = useState(0)
+    const [items , setItems] = useState(['A', 'B']);
   return (
-    <View style = {styles.content}>
-        <Text> Total : {total}</Text>
-        <Action increment ={()=> setTotal(total + 1)}
-            reset = {()=> setTotal(0)} />
-        
+    <View>
+        {items.map((item, index) =>(
+            <Text key = {index}> {item}</Text>
+        ))}
+
+        <Button onPress={() => setItems([...items, `X${items.length +1}`])} 
+        title = "Add Item"/>
     </View>
   );
 }
