@@ -1,22 +1,31 @@
 import React from 'react';
-import {  StyleSheet, Text, View } from 'react-native';
+import {  StyleSheet, Text, View, } from 'react-native';
 
+const Card = ({ children, style = {} }) =>(
+    <View style = {[ 
+        { padding:16,
+          margin: 12,
+          borderWidth: 1,
+          borderRadius: 8 
+        },style,
+    ]}>
+        {children}
+    </View>
+)
 function App() {
- 
-
   return (
     <View style = {styles.content}>
-        <View style = { styles.Block}>
+        <Card>
             <Text> First Block</Text>
-        </View>
+        </Card>
 
-        <View style = { styles.Block}>
+        <Card style = {{ backgroundColor: 'red'}}>
             <Text> Second Block</Text>
-        </View>
+        </Card>
 
-        <View style = { styles.Block}>
+        <Card>
             <Text> Third Block</Text>
-        </View>
+        </Card>
         
           
     </View>
@@ -27,18 +36,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',  
          // space between cards (RN 0.71+)
   },
-
-  Block :{
-    padding: 16,
-    margin:12,
-    borderWidth: 1,
-    borderRadius: 8,
-
-  }
-
-
-  
-
 
 });
 export default App;
