@@ -1,37 +1,44 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import {  StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  const data = [
-    'One', 'Two', 'Three', 'Four', 'Five',
-    'Six', 'Seven', 'Eight', 'Nine', 'Ten',
-  ];
+function App() {
+ 
 
   return (
-    <ScrollView contentContainerStyle={styles.content}>
-      {data.map((item, index) => (
-        <View>
-            <View style={StyleSheet.divider} />
-            <View key={index} style={styles.card}>
-          <Text>{item}</Text>
+    <View style = {styles.content}>
+        <View style = { styles.Block}>
+            <Text> First Block</Text>
         </View>
-        {index % 4 === 0 && <View style = {styles.divider} />}
+
+        <View style = { styles.Block}>
+            <Text> Second Block</Text>
         </View>
-      ))}
-    </ScrollView>
+
+        <View style = { styles.Block}>
+            <Text> Third Block</Text>
+        </View>
+        
+          
+    </View>
   );
 }
 const styles = StyleSheet.create({
   content: {
-    padding: 20,
-    gap: 15,     
-    backgroundColor: 'wheat'       // space between cards (RN 0.71+)
+    backgroundColor: 'white',  
+         // space between cards (RN 0.71+)
   },
 
-  divider : {
-    height:1,
-    backgroundColor:'#ccc',
-    flex:1
-  },
+  Block :{
+    padding: 16,
+    margin:12,
+    borderWidth: 1,
+    borderRadius: 8,
+
+  }
+
+
+  
+
 
 });
+export default App;
