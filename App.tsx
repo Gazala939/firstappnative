@@ -1,39 +1,28 @@
-import React from 'react';
-import {  StyleSheet, Text, View, } from 'react-native';
+import {useState} from 'react';
+import {  StyleSheet, Text, View,Button } from 'react-native';
 
-const Card = ({ children, style = {} }) =>(
-    <View style = {[ 
-        { padding:16,
-          margin: 12,
-          borderWidth: 1,
-          borderRadius: 8 
-        },style,
-    ]}>
-        {children}
+const Action = ({ increment, reset}) => (
+    <View style = {{gap:10}}>
+        <Button title = "Add"  onPress ={increment} />
+        <Button title = "Reset"  onPress = {reset}/>
     </View>
 )
 function App() {
+    const[total, setTotal] = useState(0)
   return (
     <View style = {styles.content}>
-        <Card>
-            <Text> First Block</Text>
-        </Card>
-
-        <Card style = {{ backgroundColor: 'red'}}>
-            <Text> Second Block</Text>
-        </Card>
-
-        <Card>
-            <Text> Third Block</Text>
-        </Card>
+        <Text> Total : {total}</Text>
+        <Action increment ={()=> setTotal(total + 1)}
+            reset = {()=> setTotal(0)} />
         
-          
     </View>
   );
 }
 const styles = StyleSheet.create({
   content: {
-    backgroundColor: 'white',  
+    backgroundColor: 'white',
+    padding: 20,
+    
          // space between cards (RN 0.71+)
   },
 
