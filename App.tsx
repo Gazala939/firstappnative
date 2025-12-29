@@ -1,27 +1,39 @@
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+} from 'react-native';
 
+export default function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-
-function App() {
-  const [log, setLog] = useState('Tap the box');
+  const submit = () => {
+    Alert.alert('Login Details', `Email: ${email}\nPassword: ${password}`);
+  };
 
   return (
     <View style={styles.container}>
-      <Pressable
-        style={({ pressed }) => [
-          styles.box,
-          { opacity: pressed ? 0.7 : 1 },
-        ]}
-        onPress={() => setLog('On Press')}
-        onPressIn={() => setLog('On Press In')}
-        onPressOut={() => setLog('On Press Out')}
-        onLongPress={() => setLog('On Long Press')}
-      >
-        <Text>Tap / Long Press</Text>
-      </Pressable>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        onChangeText={setEmail}
+      />
 
-      <Text style={{ marginTop: 12 }}>{log}</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        onChangeText={setPassword}
+      />
+
+      <TouchableOpacity style={styles.button} onPress={submit}>
+        <Text style={styles.buttonText}>Submit</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -30,14 +42,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
+    padding: 20,
   },
-  box: {
-    backgroundColor: '#BBDEFB',
-    padding: 24,
-    borderRadius: 12,
+  input: {
+    borderWidth: 1,
+    marginBottom: 12,
+    padding: 10,
+    borderRadius: 6,
+  },
+  button: {
+    backgroundColor: '#4CAF50',
+    padding: 12,
+    alignItems: 'center',
+    borderRadius: 6,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: '600',
   },
 });
-
-export default App;
