@@ -3,17 +3,20 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
   StyleSheet,
-  Alert,
+  Button,
 } from 'react-native';
 
 export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // ✅ email validation
+  const isEmailValid =
+    email.includes('@') && email.length >= 10;
+
   const submit = () => {
-    Alert.alert('Login Details', `Email: ${email}\nPassword: ${password}`);
+    alert(`Email: ${email}\nPassword: ${password}`);
   };
 
   return (
@@ -31,9 +34,14 @@ export default function App() {
         onChangeText={setPassword}
       />
 
-      <TouchableOpacity style={styles.button} onPress={submit}>
-        <Text style={styles.buttonText}>Submit</Text>
-      </TouchableOpacity>
+      {/* ✅ Button instead of TouchableOpacity */}
+      <Button
+        title="Submit"
+        onPress={submit}
+        disabled={!isEmailValid}
+      />
+
+     
     </View>
   );
 }
@@ -46,18 +54,9 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    marginBottom: 12,
+    marginBottom: 10,
     padding: 10,
     borderRadius: 6,
   },
-  button: {
-    backgroundColor: '#4CAF50',
-    padding: 12,
-    alignItems: 'center',
-    borderRadius: 6,
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '600',
-  },
+  
 });
